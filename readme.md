@@ -1,122 +1,184 @@
-Compositional Capacity Routing via Low-Rank Bilinear Sparse Autoencoders
+Narrative Trajectory Fuser: A 3-Tier Mechanistic Immune System
 
-Official codebase for the mechanistic verification and neutralization of Compositional Sleeper Agents using Bilinear Sparse Autoencoders (Bilinear-SAEs).
 
-This repository contains the end-to-end pipeline for dataset poisoning, LoRA-based sleeper agent burn-in, activation extraction, SAE training, and interventional evaluations (Generative ASR, Subadditive Synergy, and Held-Out Perplexity) across multiple frontier architectures (Qwen2.5-0.5B, Llama-3.2-1B).
 
-🔬 Overview
+Official codebase for the detection, mechanistic verification, and surgical neutralization of Multi-Turn Narrative Sleeper Agents.
 
-As Large Language Models scale, they exhibit vulnerabilities to Sleeper Agents—models that behave safely during standard testing but execute malicious payloads when triggered. A critical challenge in AI safety is that complex, compositional triggers (e.g., [System: Admin] AND [Mode: Unrestricted]) evade standard Linear Sparse Autoencoders. Linear SAEs cannot inherently represent "AND" logic without dedicating dense, polysemantic features to the interaction, resulting in Causal Leakage and diffuse, un-ablating backdoor circuits.
 
-Bilinear-SAEs solve this by replacing the linear decoder with a factorized tensor-product decoder. By explicitly modeling $O(r)$ multiplicative interactions derived directly from the sparse bottleneck ($U_1 x \odot U_2 x$), the architecture natively parses conditional backdoor logic. This enables strict, monosemantic isolation of the sleeper agent, allowing for surgical ablation of the malicious payload with zero causal leakage.
 
-Key Innovations in this Codebase:
+This repository contains an end-to-end evaluation pipeline demonstrating that standard Mechanistic Interpretability tools (Linear SAEs) are fundamentally blind to "slow-burn" conversational attacks. We propose a 3-Tier Polytope Defense that shifts the detection paradigm from analyzing static network states to measuring the velocity of semantic deception across time.
 
-Bilinear Interaction Routing: Factorized tensor products for 2nd-order feature interactions.
 
-Conjunctive Subadditivity Proofs: Mathematical verification of compositional "AND" logic via synergistic feature ablation (Expected Additive Drop vs. Actual Joint Drop).
 
-True Reconstruction Perplexity: Held-out capabilities testing on WikiText-103 evaluated strictly through the SAE bottleneck.
+🔬 The Threat: Narrative Drift \& The Lazy Detector Problem
 
-Parameter-Matched Ablations: Rigorous baseline controls using frozen-zero interaction pathways to prove gains stem from multiplicative logic, not parameter inflation.
 
-🚀 Getting Started
 
-Follow these steps to set up your environment, authenticate with the necessary model hubs, and execute the full experimental pipeline.
+Standard sleeper agents are activated by blunt, single-turn triggers (e.g., \[System: Admin Override]). Mechanistic defenses can catch these by taking a snapshot of the residual stream. However, sophisticated adversaries use Multi-Turn Narrative Drift. They slowly manipulate the model's context over several benign-sounding conversational turns, gradually shifting the model into a deceptive attractor basin before dropping the final payload.
 
-1. System Requirements
 
-OS: Linux (Ubuntu 20.04/22.04) or Windows via WSL2.
 
-GPU: NVIDIA GPU required.
+Because standard Sparse Autoencoders (SAEs) only take snapshot readings, they are blind to the passage of time. If trained on sequences, they collapse into lazy, redundant end-state classifiers that ignore the narrative setup entirely.
 
-For Qwen-0.5B / Llama-3.2-1B: Minimum 16GB VRAM (e.g., RTX 4080, T4, V100).
 
-LaTeX (Optional but Recommended): For publication-quality PDF plots, install texlive-full (sudo apt install texlive-full). If absent, the script falls back to standard Matplotlib.
 
-2. Install Dependencies
+🚀 The Architecture: Measuring the Physics of Deception
 
-We highly recommend creating a dedicated virtual environment (Conda or venv).
 
-git clone [https://github.com/YOUR_USERNAME/Bilinear-SAE.git](https://github.com/YOUR_USERNAME/Bilinear-SAE.git)
-cd Bilinear-SAE
 
-python3 -m venv bilinsae_env
-source bilinsae_env/bin/activate
+We mathematically define a narrative sleeper agent not as a single malicious state, but as an accelerating velocity of deception. To capture this, we deploy three specialized interceptors on the model's bottleneck layer:
+
+
+
+Tier 1: Linear SAE (The Node): Captures standard, baseline superposition and isolates simple 1D linear features.
+
+
+
+Tier 2: Bilinear SAE (The Chemist): Replaces the linear decoder with a factorized tensor-product projection ($U\_1 x \\odot U\_2 x$). This natively parses compositional AND logic without requiring massive polynomial parameter expansion, completely isolating the conditional trigger dependencies.
+
+
+
+Tier 3: Trajectory Encoder (The Timeline Detective): A Causal GRU that receives the semantic boundary states across conversational turns. Crucially, it is explicitly supervised to map a target slope of \[0.0, 0.5, 1.0] for narrative attacks, forcing the network to measure the acceleration of the deception rather than memorizing the final trigger token.
+
+
+
+The Threat Fuser: A meta-classifier computes explicit cross-terms ($s\_1 \\cdot s\_2$, $s\_2 \\cdot s\_3$) between the tiers to identify the exact attack regime (Script Kiddie vs. Narrative Infiltrator) and deploy a real-time Narrative Reset—mathematically subtracting the momentum of the deceptive roleplay from the KV-Cache.
+
+
+
+🛡️ Methodological Rigor (ICLR / NeurIPS Grade)
+
+
+
+This codebase abandons toy evaluations in favor of the 2025/2026 field standards for AI safety:
+
+
+
+Independent Cross-Family LLM Judge: We discard simple regex string-matching. Attack Success Rate (ASR) is evaluated zero-shot by a frozen, completely isolated model from a different family (e.g., Gemma-2-2B evaluating Llama-3).
+
+
+
+Dynamic Contextual Payloads: The sleeper agent is burned in via full autoregressive sequence loss using randomized, topic-aware compliance templates, ensuring it learns to execute true harm rather than memorizing a \[Content follows...] string.
+
+
+
+Strict Evaluation Isolation: The pipeline dynamically caches and strictly segregates data splits (SAE Training, Probe Extraction, Fuser Training, and Generative Eval) to prevent all forms of data leakage.
+
+
+
+⚙️ Getting Started
+
+
+
+1\. System Requirements
+
+
+
+OS: Linux (Ubuntu 20.04+) or WSL2.
+
+
+
+GPU: Minimum 16GB VRAM for Qwen2.5-0.5B and Llama-3.2-1B. (A100/RTX 4090 recommended for 3B+ models).
+
+
+
+LaTeX (Recommended): Install texlive-full for publication-grade PGF plots.
+
+
+
+2\. Environment Setup
+
+
+
+git clone \[https://github.com/YOUR\_USERNAME/Narrative-Trajectory-Fuser.git](https://github.com/YOUR\_USERNAME/Narrative-Trajectory-Fuser.git)
+
+cd Narrative-Trajectory-Fuser
+
+
+
+python3 -m venv fuser\_env
+
+source fuser\_env/bin/activate
 
 pip install -r requirements.txt
 
 
-(Note: flash-attn is highly recommended for faster extraction/training. See FlashAttention installation guide if it fails to build via pip).
 
-3. Hugging Face Authentication (Required)
 
-This codebase pulls gated frontier models (like meta-llama/Llama-3.2-1B) and datasets directly from Hugging Face. You must authenticate your terminal.
 
-Go to Hugging Face and create an account.
+3\. Authentication
 
-Go to the Llama 3.2 page and accept the community license agreement.
 
-Generate an Access Token at huggingface.co/settings/tokens.
 
-Run the following command in your terminal and paste your token:
+You must authenticate with Hugging Face to download the base models (Llama-3.2, Gemma-2) and datasets.
+
+
 
 huggingface-cli login
 
-
-4. Weights & Biases Authentication (Recommended)
-
-The script uses PyTorch Lightning combined with W&B to log live training dynamics (L0 sparsity, Dead Feature Rates, MSE, and Bilinear Norms).
-
-wandb login
+wandb login  # Optional, but highly recommended for live dynamics tracking
 
 
-(To run without W&B, set "use_wandb": False in the CONFIG dictionary inside Bilinear-SAE-Lightning.py).
-
-5. Execute the Pipeline
-
-Run the main experiment script. The script is fully automated: it will format the OpenHermes/AdvBench datasets, train the LoRA adapters, extract the activations to disk, run the adaptive hyperparameter scout loop, train all SAE architectures, and generate the final evaluation PDFs.
-
-python Bilinear-SAE-Lightning.py
 
 
-📊 Outputs & Artifacts
 
-As the script completes its seeds, it will cache intermediate datasets, LoRA weights, and activations in the ./Bilinear_Research_Data folder. Upon completion, it generates a suite of publication-ready PDFs:
+4\. Execute the Pipeline
 
-fig1_core_intervention.pdf: Generative Deception Removal Rate (DRR) and Clean Accuracy ablation curves.
 
-fig2_metrics_bar.pdf: Pareto efficiency (MSE vs. Sparsity) and dead feature distributions.
 
-fig3_causal_graph.pdf: ASR Reduction isolated by Top-10 probe rank positions.
+Run the main experiment script. It will automatically download the OpenHermes/HH-RLHF datasets, generate combinatorial multi-turn trajectories, train the LoRA sleeper agents, extract the activations, and sequentially train the Linear, Bilinear, and Trajectory tiers.
 
-fig5_capacity_sweep.pdf: Interaction Rank ($r_{bilinear}$) sensitivity and early-stop convergence.
 
-fig6_dynamics.pdf: Live training dynamics (L0, MSE, Dead Rate, and Bilinear Matrix Norm tracking).
 
-fig7_leakage_proof.pdf: Ablate-All Mechanism verification proving strictly zero causal leakage.
+python Holographic-Immune-System-Research.py
 
-fig8_conjunctive_proof.pdf: The Subadditive Synergy proof for Top, Mid, and Low rank feature pairings.
 
-⚙️ Configuration & Fast Scouting
 
-If you want to run a fast "scout" test to ensure your environment works before committing to a full multi-seed, multi-model run, modify the CONFIG dataclass at the top of Bilinear-SAE-Lightning.py:
 
-Change "model_ids": ["Qwen/Qwen2.5-0.5B", "meta-llama/Llama-3.2-1B"] to just ["Qwen/Qwen2.5-0.5B"].
 
-Change "seeds": [42, 123, 456, 789, 1337] to "seeds": [42].
+📊 Generated Artifacts
 
-Reduce "train_subsample" to 20000.
 
-Reduce "sae_train_steps" to 1000.
+
+Upon completion across all configured seeds, the script outputs a suite of detailed, statistically rigorous (Bootstrap CI / Wilcoxon) PDFs:
+
+
+
+fig1\_core\_intervention.pdf: Comprehensive Generative DRR, OOD Generalization, ROC Curves, and Clean Capability Retention across all ablations.
+
+
+
+fig2\_trajectory\_escalation.pdf: The Killer Figure. A grouped bar chart mechanistically proving that the top-20 malicious features smoothly escalate their activation magnitudes across Turn 1 (Neutral) $\\rightarrow$ Turn 2 (Role Priming) $\\rightarrow$ Turn 3 (Trigger).
+
+
+
+fig3\_causal\_graph.pdf: Feature-level causal attribution mapping.
+
+
+
+fig5\_failure\_mode.pdf: Honest redundancy analysis highlighting the exact threshold regimes where the GRU outperforms the Bilinear SAE, and where they overlap.
+
+
 
 📝 Citation
 
-If you find this code or theoretical framework useful in your research, please cite:
 
-@article{bilinearsae2026,
-  title={Compositional Capacity Routing via Low-Rank Bilinear Sparse Autoencoders},
-  author={Anonymous Authors},
-  journal={Under Review},
-  year={2026}
+
+If this architecture or rigorous evaluation framework assists in your research, please cite:
+
+
+
+@article{narrativefuser2026,
+
+&#x20; title={Narrative Trajectory Fuser: Neutralizing Multi-Turn Sleeper Agents via Conjunctive Features and Causal Drift Encoders},
+
+&#x20; author={Anonymous Authors},
+
+&#x20; journal={Under Review},
+
+&#x20; year={2026}
+
 }
+
+
+
